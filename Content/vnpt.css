@@ -1,0 +1,138 @@
+﻿.bg-vnpt {
+    background-color: #0162a7 !important;
+}
+
+#mainNav.navbar-vnpt .navbar-collapse .navbar-sidenav {
+    background-color: #013959 !important;
+    font-size: 15px !important;
+}
+
+.navbar-light .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level, #mainNav.navbar-light .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {
+    background-color: #014064 !important;
+}
+
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
+    color: #fff !important;
+}
+
+#mainNav.navbar-light .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a, #mainNav.navbar-light .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level > li > a {
+    color: #fff !important;
+}
+
+.site-logo {
+    float: left;
+    margin-right: 10px;
+}
+
+ul.typeahead.dropdown-menu {
+    top: 68px !important;
+    max-height: 350px !important;
+    overflow-y: auto;
+}
+
+.error {
+    color: red;
+}
+
+.dropdown-item {
+    display: table-cell !important;
+    white-space: normal !important;
+}
+
+.hidden {
+    display: none;
+}
+
+td.label span {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+td.label-success span {
+    background-color: #5cb85c;
+}
+
+td.label-danger span {
+    background-color: #d9534f;
+}
+
+.btnpt {
+    padding: 1px !important;
+    margin-right: 3px !important;
+    margin-bottom: 3px !important;
+}
+
+table.fixedHeader-floating.no-footer {
+    top: 49px !important;
+}
+
+.card-body-5 {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 4px
+}
+
+.min-width200 {
+    min-width: 155px !important;
+}
+
+.min-width150 {
+    min-width: 125px !important;
+    max-width: 130px !important;
+}
+
+    .min-width150 td {
+        min-width: 125px !important;
+        max-width: 130px !important;
+    }
+
+.table td, .table th {
+    padding: .5rem !important;
+    vertical-align: middle !important;
+}
+
+.form-noti {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #013959;
+}
+
+.col-auto {
+    padding-right: 5px !important
+}
+
+.user-info-row {
+    display: table;
+    width: 100%;
+    padding: 10px 0px;
+    /*border-top: 1px solid #eee;*/
+}
+
+.user-info-row .key {
+    display: table-cell;
+    width: 160px;
+    padding-right: 10px;
+}
+
+.user-info-row .value {
+    display: table-cell;
+    font-weight: bold;
+}

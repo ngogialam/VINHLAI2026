@@ -1,0 +1,285 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - VNPT PHÚ THỌ</title>
+    <link rel="stylesheet" href="Content/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="Content/vnpt.css" type="text/css" />
+    <!-- Bootstrap core JavaScript-->
+    <script src='<%= ResolveUrl("Scripts/jquery.js")%>'></script>
+    <script src='<%= ResolveUrl("Scripts/jquery-ui.min.js")%>'></script>
+
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="vendor/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet" />
+    <script src='<%= ResolveUrl("vendor/datatables/jquery.dataTables.js")%>'></script>
+    <script src='<%= ResolveUrl("vendor/datatables/dataTables.bootstrap4.js")%>'></script>
+
+    <!-- Custom scripts for all pages-->
+
+    <!-- Custom scripts for this page-->
+    <script src='<%= ResolveUrl("js/sb-admin-datatables.min.js")%>'></script>
+    <link href="vendor/datatables/css/fixedHeader.dataTables.min.css" rel="stylesheet" />
+    <script src='<%= ResolveUrl("vendor/datatables/js/dataTables.fixedHeader.min.js")%>'></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        @media only screen and (max-width: 600px) {
+            .navbar-brand {
+                white-space: nowrap;
+                width: 60%;
+                overflow: hidden;
+                text-overflow: "----";
+                font-size: 1rem;
+            }
+            .breadcrumb {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: "----";
+            }
+            footer > div > div > small:first-of-type {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="fixed-nav sticky-footer bg-vnpt" id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-vnpt bg-vnpt fixed-top" id="mainNav">
+        <a href='<%= ResolveUrl("Default.aspx")%>' class="site-logo">
+            <img src='<%= ResolveUrl("Images/logo.png")%>' style="height: 40px;"></a>
+        <a class="navbar-brand" href="./default.aspx">PHẦN MỀM QUẢN LÝ HÓA ĐƠN ĐIỆN VNPT EMAN</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Trang chủ">
+                    <a class="nav-link" href='<%= ResolveUrl("Default.aspx")%>'>
+                        <i class="fa fa-fw fa-home" style="font-size: 20px"></i>
+                        <span class="nav-link-text" style="font-size: 18px">Trang chủ</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bán hàng">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#NhapChiSo"
+                        data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-cart-plus" style="font-size: 20px"></i>
+                        <span class="nav-link-text" style="font-size: 18px">Nhập chỉ số</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="NhapChiSo">
+                        <li>
+                            <a href='<%= ResolveUrl("NhapChiSo.aspx")%>'>Chỉ số công tơ</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("ChiSoCongToTong.aspx")%>'>Chỉ số công tơ tổng</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Hóa đơn">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#HoaDon"
+                        data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-sticky-note" style="font-size: 20px"></i>
+                        <span class="nav-link-text" style="font-size: 18px">Hóa đơn điện tử</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="HoaDon">
+                        <li>
+                            <a href='<%= ResolveUrl("LapHoaDon.aspx")%>'>Lập hóa đơn</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("LapHoaDonDienTangGia.aspx")%>'>Lập hóa đơn điện tăng giá</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("PhatHanhHD.aspx")%>'>Phát hành hóa đơn</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("InChuyenDoiHoaDon.aspx")%>'>In chuyển đổi</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("InChuyenDoiTheoSoHD.aspx")%>'>In chuyển đổi theo số hóa đơn</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("DanhSachHoaDon.aspx")%>'>Danh sách HDDT</a>
+                        </li>
+                         <li>
+                            <a href='<%= ResolveUrl("ThayTheHoaDon.aspx")%>'>Lập hóa đơn thay thế</a>
+                        </li>
+                         <li>
+                            <a href='<%= ResolveUrl("HuyHoaDon.aspx")%>'>Hủy hóa đơn</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Danh mục">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#DanhMuc"
+                        data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-address-book-o" style="font-size: 20px"></i>
+                        <span class="nav-link-text" style="font-size: 18px">Danh mục</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="DanhMuc">
+                        <li>
+                            <a href='<%= ResolveUrl("DanhMucBangGiaDien.aspx")%>'>Danh mục bảng giá điện </a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("DanhMucTramBienAp.aspx")%>'>Danh mục trạm biến áp</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("DanhSachKhachHang.aspx")%>'>Danh mục khách hàng</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("DanhMucNhanVien.aspx")%>'>Danh mục nhân viên</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("DanhMucCongTo.aspx")%>'>Danh mục công tơ</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("DanhMucKhu.aspx")%>'>Danh mục khu</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("DanhSachKyHD.aspx")%>'>Kỳ hóa đơn</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Báo cáo thống kê">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages1"
+                        data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-bar-chart" style="font-size: 20px"></i>
+                        <span class="nav-link-text" style="font-size: 18px">Báo cáo tổng hợp</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseExamplePages1">
+                        <li>
+                            <a href='<%= ResolveUrl("BAO_CAO/BaoCaoTinhHinhSDDN.aspx")%>'>A. Báo cáo tình hình sử dụng</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("BAO_CAO/BangKeTienDien.aspx")%>'>B. Bảng kê tiền điện</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("BAO_CAO/BaoCaoDSKhachHang.aspx")%>'>C. Danh sách khách hàng theo các mục đích
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("BAO_CAO/DSChotChiSo.aspx")%>'>D. Danh sách chốt chỉ số</a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("BAO_CAO/DanhSachTieuThu.aspx")%>'>E. Danh sách tiêu thụ </a>
+                        </li>
+                        <li>
+                            <a href='<%= ResolveUrl("BAO_CAO/BaoCaoQuanTri.aspx")%>'>F. Báo cáo quản trị</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Hướng dẫn sử dụng">
+                    <a class="nav-link" href="<%= ResolveUrl("HDSD/VNPT_HDSD_VNPT-EMAN.pdf")%>" target="_blank">
+                        <i class="fa fa-file-pdf-o" style="font-size: 20px"></i>
+                        <span class="nav-link-text" style="font-size: 18px; margin-left: 4px">Hướng dẫn sử dụng</span>
+                    </a>
+                </li>
+
+                <!--
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Báo cáo ngày">
+                    <a class="nav-link" href="./CapNhatModuleOLT.aspx">
+                        <i class="fa fa-fw fa-wrench"></i>
+                        <span class="nav-link-text">Báo cáo ngày</span>
+                    </a>
+                </li>
+                -->
+            </ul>
+            <ul class="navbar-nav sidenav-toggler">
+                <li class="nav-item">
+                    <a class="nav-link text-center" id="sidenavToggler">
+                        <i class="fa fa-fw fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link">Xin chào
+                        <asp:Label ID="txtUser" runat="server"></asp:Label>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb mb-2">
+                <li class="breadcrumb-item">
+                    <a href="Default.aspx">Trang chủ</a>
+                </li>
+                <li class="breadcrumb-item active"><%: Page.Title %></li>
+            </ol>
+            <form runat="server" id="main">
+                <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </form>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Phần mềm quản lý hóa đơn điện ,Hỗ trợ: 02103.636668</small>
+                    <br />
+                    <small style="color: white">Copyright &copy; VNPT Phú Thọ <%: DateTime.Now.Year %></small>
+                </div>
+            </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Bạn thật sự muốn đăng xuất?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Chọn "Đăng xuất" để thoát phiên.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy bỏ</button>
+                        <a class="btn btn-primary" href="<%= ResolveUrl("Logout.aspx")%>">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript-->
+        <%--  <script src="vendor/jquery/jquery.min.js"></script>--%>
+        <script src='<%= ResolveUrl("vendor/bootstrap/js/bootstrap.bundle.min.js")%>'></script>
+        <script src='<%= ResolveUrl("vendor/jquery-easing/jquery.easing.min.js")%>'></script>
+        <script src='<%= ResolveUrl("js/sb-admin.min.js")%>'></script>
+        <!-- DatePicker -->
+       <%-- <script src="../vendor/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+        <script src="../vendor/datepicker/locales/bootstrap-datepicker.vi.js" type="text/javascript"></script>--%>
+        <!-- bootstrap time picker -->
+       <%-- <script src="../vendor/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>--%>
+    </div>
+
+</body>
+</html>
