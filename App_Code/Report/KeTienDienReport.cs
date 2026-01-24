@@ -10,6 +10,8 @@ using DevExpress.XtraReports.UI;
 public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
 {
     private XRTableCell lblMaKh;
+    private XRTableCell lblSLDongHo;
+    private XRTableCell lblCotDienSo;
     private XRTableCell lblDiaChi;
     private XRTableCell lblDienThoai;
     private XRTableCell lblChiSoCu;
@@ -32,6 +34,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
     private XRTableCell xrTableCell1;
     private XRTableCell xrTableCell2;
     private XRTableCell xrTableCell3;
+    private XRTableCell lblHeaderSL;
+    private XRTableCell lblHeaderCot;
     private XRTableCell xrTableCell4;
     private XRTableCell xrTableCell17;
     private XRTableCell xrTableCell21;
@@ -44,6 +48,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
     private XRTableCell xrTableCell7;
     private XRTableCell xrTableCell8;
     private XRTableCell xrTableCell9;
+    private XRTableCell lblHeaderSubSL;
+    private XRTableCell lblHeaderSubCot;
     private XRTableCell xrTableCell10;
     private XRTableCell xrTableCell12;
     private XRTableCell xrTableCell52;
@@ -143,6 +149,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         string resourceFileName = "KeTienDienReport.resx";
         System.Resources.ResourceManager resources = global::Resources.KeTienDienReport.ResourceManager;
         this.lblMaKh = new DevExpress.XtraReports.UI.XRTableCell();
+        this.lblSLDongHo = new DevExpress.XtraReports.UI.XRTableCell();
+        this.lblCotDienSo = new DevExpress.XtraReports.UI.XRTableCell();
         this.lblDiaChi = new DevExpress.XtraReports.UI.XRTableCell();
         this.lblDienThoai = new DevExpress.XtraReports.UI.XRTableCell();
         this.lblChiSoCu = new DevExpress.XtraReports.UI.XRTableCell();
@@ -190,6 +198,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
+        this.lblHeaderSL = new DevExpress.XtraReports.UI.XRTableCell();
+        this.lblHeaderCot = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -203,6 +213,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
+        this.lblHeaderSubSL = new DevExpress.XtraReports.UI.XRTableCell();
+        this.lblHeaderSubCot = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
         this.xrTableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -250,7 +262,25 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.lblMaKh.StylePriority.UseFont = false;
         this.lblMaKh.StylePriority.UseTextAlignment = false;
         this.lblMaKh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-        this.lblMaKh.Weight = 16;
+        this.lblMaKh.Weight = 14;
+        // 
+        // lblSLDongHo
+        // 
+        this.lblSLDongHo.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+        this.lblSLDongHo.Name = "lblSLDongHo";
+        this.lblSLDongHo.StylePriority.UseFont = false;
+        this.lblSLDongHo.StylePriority.UseTextAlignment = false;
+        this.lblSLDongHo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+        this.lblSLDongHo.Weight = 7;
+        // 
+        // lblCotDienSo
+        // 
+        this.lblCotDienSo.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+        this.lblCotDienSo.Name = "lblCotDienSo";
+        this.lblCotDienSo.StylePriority.UseFont = false;
+        this.lblCotDienSo.StylePriority.UseTextAlignment = false;
+        this.lblCotDienSo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+        this.lblCotDienSo.Weight = 8;
         // 
         // lblDiaChi
         // 
@@ -259,7 +289,7 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.lblDiaChi.StylePriority.UseFont = false;
         this.lblDiaChi.StylePriority.UseTextAlignment = false;
         this.lblDiaChi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-        this.lblDiaChi.Weight = 30;
+        this.lblDiaChi.Weight = 22;
         // 
         // lblDienThoai
         // 
@@ -285,6 +315,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
             this.lblStt,
             this.lblTenKh,
             this.lblMaKh,
+            this.lblSLDongHo,
+            this.lblCotDienSo,
             this.lblDiaChi,
             this.lblDienThoai,
             this.lblTienSauThue,
@@ -332,7 +364,7 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.lblTenKh.StylePriority.UseFont = false;
         this.lblTenKh.StylePriority.UseTextAlignment = false;
         this.lblTenKh.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-        this.lblTenKh.Weight = 40;
+        this.lblTenKh.Weight = 35;
         // 
         // lblTienSauThue
         // 
@@ -686,6 +718,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
             this.xrTableCell1,
             this.xrTableCell2,
             this.xrTableCell3,
+            this.lblHeaderSL,
+            this.lblHeaderCot,
             this.xrTableCell4,
             this.xrTableCell5,
             this.xrTableCell6,
@@ -722,7 +756,7 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell2.StylePriority.UseTextAlignment = false;
         this.xrTableCell2.Text = "Họ tên hộ sử dụng điện";
         this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-        this.xrTableCell2.Weight = 40;
+        this.xrTableCell2.Weight = 35;
         // 
         // xrTableCell3
         // 
@@ -736,10 +770,38 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell3.StylePriority.UseTextAlignment = false;
         this.xrTableCell3.Text = "Mã khách hàng";
         this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-        this.xrTableCell3.Weight = 16;
+        this.xrTableCell3.Weight = 14;
+        // 
+        // lblHeaderSL
+        // 
+        this.lblHeaderSL.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
+        | DevExpress.XtraPrinting.BorderSide.Right)));
+        this.lblHeaderSL.CanGrow = false;
+        this.lblHeaderSL.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+        this.lblHeaderSL.Name = "lblHeaderSL";
+        this.lblHeaderSL.StylePriority.UseBorders = false;
+        this.lblHeaderSL.StylePriority.UseFont = false;
+        this.lblHeaderSL.StylePriority.UseTextAlignment = false;
+        this.lblHeaderSL.Text = "SL ĐH";
+        this.lblHeaderSL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+        this.lblHeaderSL.Weight = 7;
+        // 
+        // lblHeaderCot
+        // 
+        this.lblHeaderCot.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
+        | DevExpress.XtraPrinting.BorderSide.Right)));
+        this.lblHeaderCot.CanGrow = false;
+        this.lblHeaderCot.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+        this.lblHeaderCot.Name = "lblHeaderCot";
+        this.lblHeaderCot.StylePriority.UseBorders = false;
+        this.lblHeaderCot.StylePriority.UseFont = false;
+        this.lblHeaderCot.StylePriority.UseTextAlignment = false;
+        this.lblHeaderCot.Text = "Cột số";
+        this.lblHeaderCot.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+        this.lblHeaderCot.Weight = 8;
         // 
         // xrTableCell4
-        // 
+        //  
         this.xrTableCell4.CanGrow = false;
         this.xrTableCell4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
         this.xrTableCell4.Name = "xrTableCell4";
@@ -747,7 +809,7 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell4.StylePriority.UseTextAlignment = false;
         this.xrTableCell4.Text = "Địa chỉ";
         this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-        this.xrTableCell4.Weight = 30;
+        this.xrTableCell4.Weight = 22;
         // 
         // xrTableCell5
         // 
@@ -832,6 +894,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
             this.xrTableCell7,
             this.xrTableCell8,
             this.xrTableCell9,
+            this.lblHeaderSubSL,
+            this.lblHeaderSubCot,
             this.xrTableCell10,
             this.xrTableCell51,
             this.xrTableCell52,
@@ -885,7 +949,7 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell8.Name = "xrTableCell8";
         this.xrTableCell8.StylePriority.UseBorders = false;
         this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-        this.xrTableCell8.Weight = 40;
+        this.xrTableCell8.Weight = 35;
         // 
         // xrTableCell9
         // 
@@ -894,7 +958,31 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell9.CanGrow = false;
         this.xrTableCell9.Name = "xrTableCell9";
         this.xrTableCell9.StylePriority.UseBorders = false;
-        this.xrTableCell9.Weight = 16;
+        this.xrTableCell9.Weight = 14;
+        // 
+        // lblHeaderSubSL
+        // 
+        this.lblHeaderSubSL.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
+        | DevExpress.XtraPrinting.BorderSide.Bottom)));
+        this.lblHeaderSubSL.CanGrow = false;
+        this.lblHeaderSubSL.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+        this.lblHeaderSubSL.Name = "lblHeaderSubSL";
+        this.lblHeaderSubSL.StylePriority.UseBorders = false;
+        this.lblHeaderSubSL.Text = "";
+        this.lblHeaderSubSL.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+        this.lblHeaderSubSL.Weight = 7;
+        // 
+        // lblHeaderSubCot
+        // 
+        this.lblHeaderSubCot.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
+        | DevExpress.XtraPrinting.BorderSide.Bottom)));
+        this.lblHeaderSubCot.CanGrow = false;
+        this.lblHeaderSubCot.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+        this.lblHeaderSubCot.Name = "lblHeaderSubCot";
+        this.lblHeaderSubCot.StylePriority.UseBorders = false;
+        this.lblHeaderSubCot.Text = "";
+        this.lblHeaderSubCot.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+        this.lblHeaderSubCot.Weight = 8;
         // 
         // xrTableCell10
         // 
@@ -903,7 +991,7 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         this.xrTableCell10.CanGrow = false;
         this.xrTableCell10.Name = "xrTableCell10";
         this.xrTableCell10.StylePriority.UseBorders = false;
-        this.xrTableCell10.Weight = 30;
+        this.xrTableCell10.Weight = 22;
         // 
         // xrTableCell51
         // 
@@ -1346,6 +1434,8 @@ public class KeTienDienReport : DevExpress.XtraReports.UI.XtraReport
         lblStt.DataBindings.Add("Text", DataSource, "stt");
         lblTenKh.DataBindings.Add("Text", DataSource, "ten_kh");
         lblMaKh.DataBindings.Add("Text", DataSource, "ma_kh");
+        lblSLDongHo.DataBindings.Add("Text", DataSource, "sl_dong_ho");
+        lblCotDienSo.DataBindings.Add("Text", DataSource, "cot_dien_so");
         lblDiaChi.DataBindings.Add("Text", DataSource, "dia_chi");
         lblDienThoai.DataBindings.Add("Text", DataSource, "dien_thoai");
         lblTienSauThue.DataBindings.Add("Text", DataSource, "tong_tien_sau_thue", "{0:#,# ;(#,#);0}");

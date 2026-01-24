@@ -81,6 +81,8 @@ public partial class BangKeTienDien : System.Web.UI.Page
         tbxView.Columns.Add("stt", typeof(String));
         tbxView.Columns.Add("ten_kh", typeof(String));
         tbxView.Columns.Add("ma_kh", typeof(String));
+        tbxView.Columns.Add("sl_dong_ho", typeof(String));
+        tbxView.Columns.Add("cot_dien_so", typeof(String));
         tbxView.Columns.Add("dia_chi", typeof(String));
         tbxView.Columns.Add("dien_thoai", typeof(String));
         tbxView.Columns.Add("tong_tien_sau_thue", typeof(Double));
@@ -151,13 +153,15 @@ public partial class BangKeTienDien : System.Web.UI.Page
                 newRowTong[0] = i + 1;
                 newRowTong[1] = tbx.Rows[i]["ten_kh"].ToString();
                 newRowTong[2] = tbx.Rows[i]["ma_kh"].ToString();
-                newRowTong[3] = tbx.Rows[i]["dia_chi"].ToString();
-                newRowTong[4] = tbx.Rows[i]["dien_thoai"].ToString();
-                newRowTong[5] = tbx.Rows[i]["tong_tien_sau_thue"].ToString();
-                newRowTong[6] = tbx.Rows[i]["ma_cong_to"].ToString();
-                newRowTong[7] = tbx.Rows[i]["chi_so_cu"].ToString();
-                newRowTong[8] = tbx.Rows[i]["chi_so_moi"].ToString();
-                newRowTong[10] = tbx.Rows[i]["dien_nang_tt"].ToString();
+                newRowTong[3] = tbx.Rows[i]["sl_dong_ho"].ToString();
+                newRowTong[4] = tbx.Rows[i]["cot_dien_so"].ToString();
+                newRowTong[5] = tbx.Rows[i]["dia_chi"].ToString();
+                newRowTong[6] = tbx.Rows[i]["dien_thoai"].ToString();
+                newRowTong[7] = tbx.Rows[i]["tong_tien_sau_thue"].ToString();
+                newRowTong[8] = tbx.Rows[i]["ma_cong_to"].ToString();
+                newRowTong[9] = tbx.Rows[i]["chi_so_cu"].ToString();
+                newRowTong[10] = tbx.Rows[i]["chi_so_moi"].ToString();
+                newRowTong[12] = tbx.Rows[i]["dien_nang_tt"].ToString();
                 if (tbx.Rows[i]["dien_nang_tt"].ToString() == "0")
                 {
                     // check xem hộ đó có dùng nhiều công tơ không, nếu dùng nhiều vẫn chỉ tính là 1 hộ

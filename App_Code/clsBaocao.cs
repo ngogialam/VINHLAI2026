@@ -910,7 +910,7 @@ public class clsBaocao
         cmd.Connection = myConn;
         if (id_tram_bien_ap == "0")
         {
-            sql = "select ROW_NUMBER() OVER(ORDER BY b.thu_tu ASC) as stt,b.ma_kh,b.ten_kh,b.dien_thoai,b.dia_chi,b.so_ho,d.ten_viet_tat,a.ma_cong_to, a.chi_so_cu,a.chi_so_moi,a.dien_nang_tt,a.tong_tien_sau_thue,a.id_bang_gia_dien,d.ten_viet_tat ";
+            sql = "select ROW_NUMBER() OVER(ORDER BY b.thu_tu ASC) as stt,b.ma_kh,b.ten_kh ,b.sl_dong_ho,b.cot_dien_so,b.dien_thoai,b.dia_chi,b.so_ho,d.ten_viet_tat,a.ma_cong_to, a.chi_so_cu,a.chi_so_moi,a.dien_nang_tt,a.tong_tien_sau_thue,a.id_bang_gia_dien,d.ten_viet_tat ";
             sql = sql + " from hoa_don a,khach_hang b,bang_gia_dien d,tram_bien_ap e ";
             sql = sql + " where a.ma_kh=b.ma_kh and a.trang_thai = 2 ";
             ///sql = sql + " and b.id_khu=c.id_khu ";
@@ -925,7 +925,7 @@ public class clsBaocao
         }
         else
         {
-            sql = "select ROW_NUMBER() OVER(ORDER BY b.thu_tu ASC) as stt,b.ma_kh,b.ten_kh,b.dien_thoai,b.dia_chi,b.so_ho,d.ten_viet_tat,a.ma_cong_to, a.chi_so_cu,a.chi_so_moi,a.dien_nang_tt,a.tong_tien_sau_thue,a.id_bang_gia_dien,d.ten_viet_tat ";
+            sql = "select ROW_NUMBER() OVER(ORDER BY b.thu_tu ASC) as stt,b.ma_kh,b.ten_kh,b.sl_dong_ho,b.cot_dien_so,b.dien_thoai,b.dia_chi,b.so_ho,d.ten_viet_tat,a.ma_cong_to, a.chi_so_cu,a.chi_so_moi,a.dien_nang_tt,a.tong_tien_sau_thue,a.id_bang_gia_dien,d.ten_viet_tat ";
             sql = sql + " from hoa_don a,khach_hang b,bang_gia_dien d,tram_bien_ap e ";
             sql = sql + " where a.ma_kh=b.ma_kh and a.trang_thai = 2 ";
             ///sql = sql + " and b.id_khu=c.id_khu ";
