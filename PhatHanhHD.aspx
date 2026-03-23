@@ -13,7 +13,7 @@
 
 </asp:Content>
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
-  
+  https://htxdnvinhlai-tt78admin.vnpt-invoice.com.vn
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div id="page-wrapper">  

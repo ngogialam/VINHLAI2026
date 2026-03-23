@@ -113,7 +113,7 @@
                             </columns>
                             <columns>
                                 <asp:BoundField DataField="chi_so_cu" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right"
-                                    HeaderText="CSĐK" DataFormatString="{0:0,0}" />
+                                    HeaderText="CSĐK:" DataFormatString="{0:0,0}" />
                             </columns>
                             <columns>
                                 <asp:BoundField DataField="chi_so_moi" HeaderStyle-HorizontalAlign="Right" ItemStyle-HorizontalAlign="Right"
