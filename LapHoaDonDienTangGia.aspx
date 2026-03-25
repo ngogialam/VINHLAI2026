@@ -86,6 +86,11 @@
                                 <asp:Label ID="lblMaKH" runat="server" Text='<%# Eval("ma_kh") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Mã TT">
+                            <ItemTemplate>
+                                <asp:Label ID="lblMaTT" runat="server" Text='<%# Eval("ma_tt") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Tên khách hàng">
                             <ItemTemplate>
                                 <asp:Label ID="lblTenKH" runat="server" Text='<%# Eval("ten_kh") %>'></asp:Label>

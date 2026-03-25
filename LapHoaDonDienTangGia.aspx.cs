@@ -134,6 +134,7 @@ public partial class LapHoaDon : System.Web.UI.Page
             {
                 recordsAffected = 0;
                 string makh = dtbInv.Rows[i]["ma_kh"].ToString();
+                string matt = dtbInv.Rows[i]["ma_tt"].ToString();
                 string mact = "";
                 int soho = Convert.ToInt32(dtbInv.Rows[i]["so_ho"].ToString());
                 string cscu = dtbInv.Rows[i]["cs_cu"].ToString();
@@ -183,7 +184,7 @@ public partial class LapHoaDon : System.Web.UI.Page
                      
                     }
                 }
-                myNCS.them_moi_hoa_don(idHD, makh, kyhd, tungay, denngay, cscu, csmoi, dntt.ToString(), total, vaterate, vatamount, amount, user, idBangGia, mact,soho,ten_kh,id_tram_bien_ap,id_khu);
+                myNCS.them_moi_hoa_don(idHD, makh,matt, kyhd, tungay, denngay, cscu, csmoi, dntt.ToString(), total, vaterate, vatamount, amount, user, idBangGia, mact,soho,ten_kh,id_tram_bien_ap,id_khu);
                 if (i > 0)
                 {
                     if (i < dtbInv.Rows.Count && string.Compare(dtbInv.Rows[i]["ma_kh"].ToString(), dtbInv.Rows[i - 1]["ma_kh"].ToString()) != 0)

@@ -25,7 +25,7 @@ public class clsHoaDon
         string sql = "";
         if (id_tramba == "0")
          {
-        sql = "select d.id,d.so_hd,d.mau_so,d.ky_hieu,a.ma_kh, a.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt,";
+        sql = "select d.id,d.ma_tt,d.so_hd,d.mau_so,d.ky_hieu,a.ma_kh, a.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt,";
             sql = sql + "d.tong_tien_truoc_thue,d.vat_rate,d.thue_gtgt,d.tong_tien_sau_thue,d.ky_hd,d.ma_cong_to,d.tu_ngay,d.den_ngay,e.ten_tram_bien_ap, a.id_tram_bien_ap,a.id_bang_gia,a.so_ho,a.id_khu, b.id_khu,d.trang_thai,tt.ten_trang_thai";
             sql = sql + " from khach_hang a, dm_khu b,bang_gia_dien c, hoa_don d, tram_bien_ap e,dm_trang_thai_hd tt, nhan_vien nv";
             sql = sql + " where a.id_khu = b.id_khu and a.id_bang_gia=c.id_bang_gia and  a.id_tram_bien_ap=e.id_tram_bien_ap and e.nguoi_phu_trach=nv.ma_nv and  d.trang_thai=tt.trang_thai_id and d.ma_kh=a.ma_kh and d.trang_thai=" + trangthai + " and d.ky_hd='" + ky + "'";
@@ -34,7 +34,7 @@ public class clsHoaDon
         }
         else
         {
-			sql = "select d.id,d.so_hd,d.mau_so,d.ky_hieu,a.ma_kh, a.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt, ";
+			sql = "select d.id,d.ma_tt,d.so_hd,d.mau_so,d.ky_hieu,a.ma_kh, a.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt, ";
             sql = sql + "d.tong_tien_truoc_thue,d.vat_rate,d.thue_gtgt, d.tong_tien_sau_thue ,d.ky_hd,d.ma_cong_to,d.tu_ngay,d.den_ngay,e.ten_tram_bien_ap, a.id_tram_bien_ap,a.id_bang_gia,a.so_ho,a.id_khu, b.id_khu,d.trang_thai,tt.ten_trang_thai, ";
             sql = sql + " d.giam_tru_thang_10, d.giam_tru_thang_11, d.giam_tru_thang_12 ";
             sql = sql + " from khach_hang a, dm_khu b,bang_gia_dien c, hoa_don d, tram_bien_ap e,dm_trang_thai_hd tt, nhan_vien nv";
@@ -81,7 +81,7 @@ public class clsHoaDon
         string id_doanh_nghiep = myCon.get_iddoanhnghiep(HttpContext.Current.User.Identity.Name.ToString());
         string sql = "";
 
-        sql = "select d.id,d.so_hd,d.mau_so,d.ky_hieu,d.ma_kh, d.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt,";
+        sql = "select d.id,d.ma_tt,d.so_hd,d.mau_so,d.ky_hieu,d.ma_kh, d.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt,";
         sql = sql + "d.tong_tien_truoc_thue,d.vat_rate,d.thue_gtgt,d.tong_tien_sau_thue,d.ky_hd,d.ma_cong_to,d.tu_ngay,d.den_ngay,e.ten_tram_bien_ap, a.id_tram_bien_ap,a.id_bang_gia,a.so_ho,a.id_khu, b.id_khu,d.trang_thai,tt.ten_trang_thai";
         sql = sql + " from khach_hang a, dm_khu b,bang_gia_dien c, hoa_don d, tram_bien_ap e,dm_trang_thai_hd tt, nhan_vien nv";
         sql = sql + " where a.id_khu = b.id_khu and a.id_bang_gia=c.id_bang_gia and  a.id_tram_bien_ap=e.id_tram_bien_ap and e.nguoi_phu_trach=nv.ma_nv and  d.trang_thai=tt.trang_thai_id and d.ma_kh=a.ma_kh and d.trang_thai=" + trangthai + " and  d.id_tram_bien_ap='" + id_tramba + "' and d.ky_hd='" + ky + "'";
@@ -258,7 +258,7 @@ public class clsHoaDon
         string id_doanh_nghiep = myCon.get_iddoanhnghiep(HttpContext.Current.User.Identity.Name.ToString());
         string sql = "";
 
-        sql = "select distinct d.id,d.so_hd,d.mau_so,d.ky_hieu,d.ma_kh, d.ten_kh,d.ky_hd,d.so_ho,d.id_bang_gia_dien,d.trang_thai";        
+        sql = "select distinct d.id,d.ma_tt,d.so_hd,d.mau_so,d.ky_hieu,d.ma_kh, d.ten_kh,d.ky_hd,d.so_ho,d.id_bang_gia_dien,d.trang_thai";        
         sql = sql + " from hoa_don d ";
         sql = sql + "where d.trang_thai=" + trangthai + " and  d.id_tram_bien_ap='" + id_tramba + "' and d.ky_hd='" + ky + "'";
         sql = sql + " and d.id_doanh_nghiep = " + id_doanh_nghiep;
@@ -354,7 +354,7 @@ public class clsHoaDon
       //  sql = sql + " and id_doanh_nghiep = " + id_doanh_nghiep;
        // sql = sql + " order by id DESC";
 
-        sql = sql + "select d.id,d.so_hd,d.mau_so,d.ky_hieu,d.ma_kh, d.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt,";
+        sql = sql + "select d.id,d.ma_tt,d.so_hd,d.mau_so,d.ky_hieu,d.ma_kh, d.ten_kh,b.ten_khu,a.dia_chi,a.dien_thoai,a.mst_kh,c.ten_viet_tat,nv.dien_thoai dt_sua_chua,d.chi_so_cu,d.chi_so_moi,d.dien_nang_tt dien_nang_tt,";
         sql = sql + " d.tong_tien_truoc_thue,d.vat_rate,d.thue_gtgt,d.tong_tien_sau_thue,d.ky_hd,d.ma_cong_to,d.tu_ngay,d.den_ngay,e.ten_tram_bien_ap, d.id_tram_bien_ap,d.id_bang_gia_dien,d.so_ho,d.id_khu, b.id_khu,d.trang_thai,tt.ten_trang_thai";
         sql = sql + " from khach_hang a, dm_khu b,bang_gia_dien c, hoa_don d, tram_bien_ap e,dm_trang_thai_hd tt, nhan_vien nv ";
         sql = sql + "where a.id_khu = b.id_khu and a.id_bang_gia=c.id_bang_gia and  a.id_tram_bien_ap=e.id_tram_bien_ap and e.nguoi_phu_trach=nv.ma_nv and  d.trang_thai=tt.trang_thai_id and d.ma_kh=a.ma_kh and d.trang_thai=2";
@@ -718,9 +718,15 @@ public class clsHoaDon
                     sb.Append("<Products>");
                     DataTable dtbInvLine = lay_hoa_don_chi_tiet(key);
                     int k = 0;
+                    var mTotal = 0;
+                    var mVATRate = int.Parse(dr[VATRate].ToString().Trim());
+
+                    var mAmount = 0;
                     for (k = 0; k < dtbInvLine.Rows.Count; k++)
                     {
                         DataRow drProduct = dtbInvLine.Rows[k];
+                        var curTotal = drProduct[ProdTotal].ToString().Trim().Replace(",", "");
+                        mTotal = mTotal + int.Parse(curTotal);
                         sb.Append("<Product>");
                         // sb.Append(convertSpecialCharacter(drProduct[ProdCode].ToString().Trim()));
                         sb.Append("<ProdName>");
@@ -739,20 +745,25 @@ public class clsHoaDon
                         //end
                         sb.Append("</Product>");
                     }
+                    int mVATAmount = (int)((Convert.ToDouble(mTotal) / 100) * mVATRate);
+                    double s1 = Convert.ToDouble(mTotal) / 100;
+                    int vat1 = (int)((Convert.ToDouble(mTotal) / 100) * mVATRate);
+                    mAmount = mTotal + mVATAmount;
                     sb.Append("</Products><Total>");
-                    sb.Append(dr[Total].ToString().Trim().Replace(",", ""));
+                    sb.Append(mTotal.ToString().Trim().Replace(",", ""));
                     sb.Append("</Total><VATRate>");
-                    sb.Append(dr[VATRate].ToString().Trim());
+                    sb.Append(mVATRate.ToString().Trim());
                     sb.Append("</VATRate><VATAmount>");
-                    sb.Append(dr[VATAmount].ToString().Trim().Replace(",", ""));
+                    sb.Append(mVATAmount.ToString().Trim().Replace(",", ""));
                     sb.Append("</VATAmount><Amount>");
-                    sb.Append(dr[Amount].ToString().Trim().Replace(",", ""));
+                    sb.Append(mAmount.ToString().Trim().Replace(",", ""));
                     sb.Append("</Amount><AmountInWords>");
-                    Int64 tongtien;
+         
                     string tienBangChu = "";
                     NumberToLeter numToLetter = new NumberToLeter();
-                    if (Int64.TryParse(dr[Amount].ToString().Trim().Replace(",", ""), out tongtien))
-                        tienBangChu = numToLetter.DocTienBangChu(tongtien, tienBangChu);
+
+                    tienBangChu = numToLetter.DocTienBangChu(mAmount, tienBangChu);
+           
                     sb.Append(tienBangChu);
                     sb.Append("</AmountInWords>");
                     sb.Append("</Invoice></Inv>");

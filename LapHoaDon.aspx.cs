@@ -15,7 +15,7 @@ public partial class LapHoaDon : System.Web.UI.Page
         {
             drpTram.DataSource = myNCS.get_danh_sach_tba();
             drpTram.DataBind();
-
+             
             drpKy.DataSource = myNCS.get_danhsach_ky();
             drpKy.DataBind();
 
@@ -134,6 +134,7 @@ public partial class LapHoaDon : System.Web.UI.Page
             {
                 recordsAffected = 0;
                 string makh = dtbInv.Rows[i]["ma_kh"].ToString();
+                string matt = dtbInv.Rows[i]["ma_tt"].ToString();
                 string mact = "";
                 int soho = Convert.ToInt32(dtbInv.Rows[i]["so_ho"].ToString());
                 string cscu = dtbInv.Rows[i]["cs_cu"].ToString();
@@ -177,23 +178,36 @@ public partial class LapHoaDon : System.Web.UI.Page
                 Int64 idHD = myNCS.lay_idhd();
                 if (i > 0)
                 {
+                    var s = dtbInv.Rows[i]["ma_tt"].ToString();
+                    var s2 = dtbInv.Rows[i - 1]["ma_tt"].ToString();
+                    var s3 = string.Compare(dtbInv.Rows[i]["ma_tt"].ToString(), dtbInv.Rows[i - 1]["ma_tt"].ToString());
+                
                     if (i < dtbInv.Rows.Count && string.Compare(dtbInv.Rows[i]["ma_kh"].ToString(), dtbInv.Rows[i - 1]["ma_kh"].ToString()) == 0)
                     {
                         idHD = idHD - 1;
                      
                     }
+                    else if(
+    dtbInv.Rows[i]["ma_tt"] != DBNull.Value &&    dtbInv.Rows[i - 1]["ma_tt"] != DBNull.Value 
+    &&    string.Compare(dtbInv.Rows[i]["ma_tt"].ToString(), dtbInv.Rows[i - 1]["ma_tt"].ToString()) == 0 &&
+    !dtbInv.Rows[i]["ma_tt"].ToString().Equals("")
+)
+{
+                        Console.WriteLine("Gộp hóa đơn");
+                        idHD = idHD - 1;
+                    }
                 }
-                myNCS.them_moi_hoa_don(idHD, makh, kyhd, tungay, denngay, cscu, csmoi, dntt.ToString(), total, vaterate, vatamount, amount, user, idBangGia, mact,soho,ten_kh,id_tram_bien_ap,id_khu);
+                myNCS.them_moi_hoa_don(idHD, makh, matt, kyhd, tungay, denngay, cscu, csmoi, dntt.ToString(), total, vaterate, vatamount, amount, user, idBangGia, mact,soho,ten_kh,id_tram_bien_ap,id_khu);
                 if (i > 0)
                 {
                     if (i < dtbInv.Rows.Count && string.Compare(dtbInv.Rows[i]["ma_kh"].ToString(), dtbInv.Rows[i - 1]["ma_kh"].ToString()) != 0)
                     {
-                        recordsAffected = myNCS.them_moi_hoa_don_chi_tiet(idHD, dntt, soho, idBangGia);
+                        recordsAffected = myNCS.them_moi_hoa_don_chi_tiet(idHD, dntt, soho, idBangGia, mact,matt);
                     }
                 }
                 if (i == 0)
                 {
-                    recordsAffected = myNCS.them_moi_hoa_don_chi_tiet(idHD, dntt, soho, idBangGia);
+                    recordsAffected = myNCS.them_moi_hoa_don_chi_tiet(idHD, dntt, soho, idBangGia,mact,matt);
                 }
                 //if (i == (dtbInv.Rows.Count - 1))
                 //{

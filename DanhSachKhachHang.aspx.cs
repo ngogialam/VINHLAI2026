@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -104,6 +104,7 @@ public partial class DanhSachKhachHang : System.Web.UI.Page
         Label dt = (Label)row.FindControl("lblDienThoai");
         Label sms = (Label)row.FindControl("lblNumSms");
         Label thutu = (Label)row.FindControl("lblThuTu");
+        Label matt = (Label)row.FindControl("lblMaTT");
         Label iddb = (Label)row.FindControl("lblKhu");
 
         Label idsoho = (Label)row.FindControl("lblsoHo");
@@ -133,6 +134,7 @@ public partial class DanhSachKhachHang : System.Web.UI.Page
             txtSoDongHo.Text = idSLDongHo.Text;
             txtMaCongTo.Text = idMaCongTo.Text;
             txtThuTu.Text = thutu.Text;
+            txtMaTT.Text = matt.Text;
             txtMstKH.Text = idMtsKHg.Text;
             //txtNamBH.Text = nambh.Text;
             cbKhu.SelectedValue = iddb.Text;
@@ -299,12 +301,13 @@ public partial class DanhSachKhachHang : System.Web.UI.Page
         if (ckbTrangThai.Checked)
             trang_thai = 1;
         int thu_tu = int.Parse(txtThuTu.Text);
+        string ma_tt = txtMaTT.Text.Trim();
         int id_phuong_xa = int.Parse(drpPhuongXa.SelectedValue.ToString());
         int id_huyen = int.Parse(drpHuyen.SelectedValue.ToString());
         try
         {
             string log = "Sửa khách hàng mã " + ma_kh;
-            myCus.cap_nhat_khach_hang(ma_kh, ten_kh, id_bang_gia, dia_chi, id_khu, id_tram_bien_ap, so_ho, he_so_ti, dien_thoai, mst_kh, cot_dien_so, sl_dong_ho, ma_cong_to, trang_thai, thu_tu, id_phuong_xa, id_huyen, sms);
+            myCus.cap_nhat_khach_hang(ma_kh, ten_kh, id_bang_gia, dia_chi, id_khu, id_tram_bien_ap, so_ho, he_so_ti, dien_thoai, mst_kh, cot_dien_so, sl_dong_ho, ma_cong_to, trang_thai, thu_tu, id_phuong_xa, id_huyen, sms, ma_tt);
             if (selected_kh.Rows[0]["trang_thai"].ToString() != trang_thai.ToString())
             {
                 string[] list_ma_cong_to = ma_cong_to.Split('|');

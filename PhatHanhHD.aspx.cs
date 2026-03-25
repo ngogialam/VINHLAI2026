@@ -59,12 +59,13 @@ public partial class PhatHanhHD : System.Web.UI.Page
         string pattern = drpPattern.SelectedValue.ToString();
         string xmlData = myINV.ParseIInvoice(invList);
         int i = 0;
+ 
         try
         {
             if (xmlData != null)
             {
                 PublishInvWS.PublishService service = new PublishInvWS.PublishService();
-               
+                ((System.Web.Services.Protocols.SoapHttpClientProtocol)service).Timeout = 600000;
                 var result = service.ImportAndPublishInv(adminName, adminPass, xmlData, userName, userPass, pattern, serial, 0);
               //  var result = service.ImportInv(xmlData, userName, userPass,0);
                 if (result.StartsWith("OK:"))

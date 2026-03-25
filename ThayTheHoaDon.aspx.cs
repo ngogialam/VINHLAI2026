@@ -143,6 +143,8 @@ public partial class ThayTheHoaDon : System.Web.UI.Page
         string ky_hieu = (GirdViewReplace.Rows[0].FindControl("lblKyHieu") as Label).Text.ToString();
         string ky = (GirdViewReplace.Rows[0].FindControl("lblKy") as Label).Text.ToString();
         string makh = (GirdViewReplace.Rows[0].FindControl("lblMaKH") as Label).Text.ToString();
+        string matt = (GirdViewReplace.Rows[0].FindControl("lblMaTT") as Label).Text.ToString();
+        string mact = (GirdViewReplace.Rows[0].FindControl("lblMaCT") as Label).Text.ToString();
         string idtram_ba = (GirdViewReplace.Rows[0].FindControl("idTramBA") as Label).Text.ToString();
         string id_khu = (GirdViewReplace.Rows[0].FindControl("idKhu") as Label).Text.ToString();
         string serial = drpSerial.SelectedValue.ToString();
@@ -184,7 +186,7 @@ public partial class ThayTheHoaDon : System.Web.UI.Page
         {
             string cs_moi = (GirdViewReplace.Rows[i].FindControl("txtCSMoi") as TextBox).Text.ToString();
             string cs_cu = (GirdViewReplace.Rows[i].FindControl("txtCSCu") as TextBox).Text.ToString();
-            string mact = (GirdViewReplace.Rows[i].FindControl("lblMaCT") as Label).Text.ToString();
+             mact = (GirdViewReplace.Rows[i].FindControl("lblMaCT") as Label).Text.ToString();
             myNCS.cap_nhat_chi_so(mact, cs_cu, cs_moi, ky);
 
 
@@ -215,7 +217,7 @@ public partial class ThayTheHoaDon : System.Web.UI.Page
             do
             {
                 int recordsAffected = 0;
-                string mact = "";
+                mact = "";
                 int soho = Convert.ToInt32(invReplace.Rows[i]["so_ho"].ToString());
                 string cscuReplace = invReplace.Rows[i]["chi_so_cu"].ToString();
                 string csmoiReplace = invReplace.Rows[i]["chi_so_moi"].ToString();
@@ -251,11 +253,11 @@ public partial class ThayTheHoaDon : System.Web.UI.Page
                 Double dnttINV = Convert.ToDouble(invReplace.Rows[i]["dien_nang_tt"].ToString());
 				
 				txtErr2.Text = "";
-                myNCS.them_moi_hoa_don(idhdmoi, makh, ky, tungay, denngay, cscuReplace, csmoiReplace, dnttINV.ToString(), totalINV, vaterate, vatamountINV, amountINV, user, id_bg_new, mact, soho, ten_kh, idTram, idKhu);
+                myNCS.them_moi_hoa_don(idhdmoi, makh,matt, ky, tungay, denngay, cscuReplace, csmoiReplace, dnttINV.ToString(), totalINV, vaterate, vatamountINV, amountINV, user, id_bg_new, mact, soho, ten_kh, idTram, idKhu);
                 i++;
             } while (i < invReplace.Rows.Count);
         }
-        myNCS.them_moi_hoa_don_chi_tiet(idhdmoi, dntt, sohonew, id_bg_new);
+        myNCS.them_moi_hoa_don_chi_tiet(idhdmoi, dntt, sohonew, id_bg_new,mact,matt);
 
         string xmlData = myINV.ParseIInvoiceReplace(invReplace);
 
