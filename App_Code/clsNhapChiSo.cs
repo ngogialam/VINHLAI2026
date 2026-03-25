@@ -959,7 +959,7 @@ public class clsNhapChiSo
             sql = "insert into hoa_don_chi_tiet(id_hoa_don,dong,dien_giai,so_luong,don_gia,thanh_tien,ngay_nhap,id_doanh_nghiep)";
             if(!string.IsNullOrEmpty(ma_thanh_toan) && !string.IsNullOrEmpty(ma_cong_to))
             {
-                sql = sql + " values(" + id_hd + ",1,N'Công tơ: "+ma_cong_to+" - " + diengiai + "'," + dntt + ",'" + dongia + "', '" + total + "', CONVERT( Datetime, GETDATE() ,103)," + id_doanh_nghiep + ")";
+                sql = sql + " values(" + id_hd + ",1,N'CT: "+ma_cong_to+" - " + diengiai + "'," + dntt + ",'" + dongia + "', '" + total + "', CONVERT( Datetime, GETDATE() ,103)," + id_doanh_nghiep + ")";
             }
             else
             {
@@ -1013,7 +1013,7 @@ public class clsNhapChiSo
 
                 if (!string.IsNullOrEmpty(ma_thanh_toan) && !string.IsNullOrEmpty(ma_cong_to))
                 {
-                    sql = sql + " values(" + id_hd + "," + (j + 1) + ",N'Công tơ: " + ma_cong_to + " - " + diengiai + "','" + muc[j] + "','" + dongia + "', '" + total + "', CONVERT( Datetime, GETDATE() ,103)," + id_doanh_nghiep + ")";
+                    sql = sql + " values(" + id_hd + "," + (j + 1) + ",N'CT: " + ma_cong_to + " - " + diengiai + "','" + muc[j] + "','" + dongia + "', '" + total + "', CONVERT( Datetime, GETDATE() ,103)," + id_doanh_nghiep + ")";
                 }
                 else
                 {
