@@ -24,8 +24,16 @@ public partial class DanhMucBangGiaDienChiTiet : System.Web.UI.Page
             DataTable bang_gia_dien_MDK = myBC.get_bang_gia_dien();
             drpBangGiaTyLe.DataSource = bang_gia_dien_MDK;
             drpBangGiaTyLe.DataBind();
+            if (drpBangGiaTyLe.Items.FindByValue("0") == null)
+            {
+                drpBangGiaTyLe.Items.Add(new ListItem("Không sử dụng bảng giá tỷ lệ", "0"));
+            }
             drpBangGiaTyLe_AddModal.DataSource = bang_gia_dien_MDK;
             drpBangGiaTyLe_AddModal.DataBind();
+            if (drpBangGiaTyLe_AddModal.Items.FindByValue("0") == null)
+            {
+                drpBangGiaTyLe_AddModal.Items.Add(new ListItem("Không sử dụng bảng giá tỷ lệ", "0"));
+            }
             gv_bind();
         }
 
@@ -44,45 +52,9 @@ public partial class DanhMucBangGiaDienChiTiet : System.Web.UI.Page
     protected void GridView_OnRowCommand(object sender, GridViewCommandEventArgs e)
     {
         GridViewRow row = (GridViewRow)(((Control)e.CommandSource).NamingContainer);
-        int index = row.RowIndex;
         Label idBangGia = (Label)row.FindControl("lblId");
-        Label tenBangGia = (Label)row.FindControl("lblTenBangGia");
-        Label tuSo = (Label)row.FindControl("lblTuSo");
-        Label denSo = (Label)row.FindControl("lblDenSo");
-        Label giaKhongVAT = (Label)row.FindControl("lblGiaKhongVAT");
-        Label phanTramThue = (Label)row.FindControl("lblPhanTramThue");
-        Label mucThu = (Label)row.FindControl("lblMucThu");
-        Label IDBangGiaTyLe = (Label)row.FindControl("lblIDBangGiaTyLe");
-        Label tyLe = (Label)row.FindControl("lblTyLe");
-        Label moTa = (Label)row.FindControl("lblMoTa");
-
-        if (e.CommandName == "suaGiaDien")
+        if (e.CommandName == "xoaGiaDien")
         {
-            txtID.Text = idBangGia.Text.Trim();
-            txtTenBangGia.Text = tenBangGia.Text.Trim();
-            txtTuSo.Text = tuSo.Text.Trim();
-            txtDenSo.Text = denSo.Text.Trim();
-            txtGiaKhongVAT.Text = giaKhongVAT.Text.Trim();
-            txtMucThu.Text = mucThu.Text.Trim();
-            txtPhanTramThue.Text = phanTramThue.Text.Trim();
-            txtTyLe.Text = tyLe.Text.Trim();
-            txtMoTa.Text = moTa.Text.Trim();
-            try
-            {
-                drpBangGiaTyLe.SelectedValue = IDBangGiaTyLe.Text.Trim();
-            }
-            catch
-            {
-                drpBangGiaTyLe.SelectedValue = "0";
-            }
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append(@"<script type='text/javascript'>");
-            sb.Append("$('#EditModal').modal('show');");
-            sb.Append(@"</script>");
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "MyModal",
-            sb.ToString(), false);
-        }
-        else if (e.CommandName == "xoaGiaDien") {
             try
             {
                 myCus.xoa_gia_dien_chi_tiet(Convert.ToInt32(idBangGia.Text.Trim()));
@@ -97,7 +69,7 @@ public partial class DanhMucBangGiaDienChiTiet : System.Web.UI.Page
 
     protected void btnSave_Callback(object sender, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
     {
-        int id = Convert.ToInt32(txtID.Text);
+        int id = Convert.ToInt32(hfIDEdit.Value);
         double tuSo = Convert.ToDouble(txtTuSo.Text);
         double denSo = Convert.ToDouble(txtDenSo.Text);
         double giaKhongVAT = Convert.ToDouble(txtGiaKhongVAT.Text);

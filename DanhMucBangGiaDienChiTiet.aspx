@@ -8,6 +8,33 @@
         function ThemMoi() {
             $('#AddModal').modal('show');
         }
+        function SuaGiaDien(button) {
+            var row = $(button).closest('tr');
+            function getText(id) {
+                return $.trim(row.find("[id$='" + id + "']").first().text());
+            }
+
+            $('#hfIDEdit').val(getText('lblId'));
+            $('#txtTenBangGia').val(getText('lblTenBangGia'));
+            $('#txtTuSo').val(getText('lblTuSo'));
+            $('#txtDenSo').val(getText('lblDenSo'));
+            $('#txtGiaKhongVAT').val(getText('lblGiaKhongVAT'));
+            $('#txtMucThu').val(getText('lblMucThu'));
+            $('#txtPhanTramThue').val(getText('lblPhanTramThue'));
+            $('#txtTyLe').val(getText('lblTyLe'));
+            $('#txtMoTa').val(getText('lblMoTa'));
+
+            var idBangGiaTyLe = row.find("[id$='hfIDBangGiaTyLe']").val() || '0';
+            var drpBangGiaTyLe = $('#drpBangGiaTyLe');
+            if (drpBangGiaTyLe.find('option').filter(function () {
+                return this.value === idBangGiaTyLe;
+            }).length === 0) {
+                idBangGiaTyLe = '0';
+            }
+            drpBangGiaTyLe.val(idBangGiaTyLe);
+            $('#EditModal').modal('show');
+            return false;
+        }
         function onClickThemMoi() {
             var re = /d+/;
             var txtGiaKhongVAT = $('#txtGiaKhongVAT_AddModal').val();
@@ -152,6 +179,7 @@
                         <asp:TemplateField HeaderText="Bảng giá tỷ lệ">
                             <ItemTemplate>
                                 <asp:Label ID="lblTenBangGiaTyLe" runat="server" Text='<%# Eval("ten_bang_gia_ty_le") %>'></asp:Label>
+                                <asp:HiddenField ID="hfIDBangGiaTyLe" runat="server" Value='<%# Eval("id_bang_gia_ty_le") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Tỷ lệ">
@@ -167,7 +195,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Thao tác" ItemStyle-Width="130px" ItemStyle-CssClass="text-center" HeaderStyle-CssClass="text-center">
                             <ItemTemplate>
-                                <asp:Button CssClass="btn btn-success" ID="btnSua" runat="server" CommandName="suaGiaDien" Text="Sửa"></asp:Button>
+                                <asp:Button CssClass="btn btn-success" ID="btnSua" runat="server" Text="Sửa" OnClientClick="return SuaGiaDien(this);"></asp:Button>
                                 <asp:Button CssClass="btn btn-success" ID="btnXoa" runat="server" CommandName="xoaGiaDien" Text="Xóa"></asp:Button>
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -270,7 +298,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <asp:TextBox ID="txtID" ClientIDMode="Static" runat="server" CssClass="form-control input-lg" ReadOnly="true" Visible="false"></asp:TextBox>
+                            <asp:HiddenField ID="hfIDEdit" ClientIDMode="Static" runat="server" />
                             <div class="user-info-row" style="border: none">
                                 <label class="key">Tên bảng giá (<span style="color: red">*</span>):</label>
                                 <div class="value">
@@ -310,7 +338,7 @@
                             <div class="user-info-row">
                                 <label class="key">Bảng giá tỷ lệ: </label>
                                 <div class="value">
-                                    <asp:DropDownList ID="drpBangGiaTyLe" runat="server" CssClass="form-control" DataTextField="ten_bang_gia" DataValueField="id_bang_gia">
+                                    <asp:DropDownList ID="drpBangGiaTyLe" ClientIDMode="Static" runat="server" CssClass="form-control" DataTextField="ten_bang_gia" DataValueField="id_bang_gia">
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -340,7 +368,7 @@
             </div>
         </ContentTemplate>
         <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="GridViewEman" EventName="RowCommand" />
+            <asp:PostBackTrigger ControlID="GridViewEman" />
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

@@ -86,7 +86,8 @@ public partial class PhatHanhHD : System.Web.UI.Page
                     txtErr.Text = "Có lỗi xảy ra" + result +"\n"+xmlData ;
                 }
 
-
+			// Luôn hiển thị XML để debug
+                //txtErr.Text += "<br/><br/><strong>XML Data:</strong><br/>" + Server.HtmlEncode(xmlData).Replace("\n", "<br/>");
             }
 
             else
